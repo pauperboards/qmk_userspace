@@ -1,0 +1,37 @@
+{
+    "keyboard": "crkbd/rev1",
+    "config": {
+        "features": {
+            "oled": false,
+            "rgblight": false,
+            "rgb_matrix": false,
+            "combos": true
+        },
+        "split": {
+            "transport": {
+                "sync": {
+                    "indicators": true,
+                    "layer_state": true,
+                    "modifiers": true,
+                    "oled": false
+                }
+            }
+        }
+    },
+    "keymap": "pauperboards/crkbd",
+    "layout": "LAYOUT_crkbd_w",
+    "layers": [
+        [
+            "C_42(_QWERTY)"
+        ],
+        [
+            "C_42(_NUMBER)"
+        ],
+        [
+            "C_42(_SYMBOL)"
+        ],
+        [
+            "C_42(_NAVIGATION)"
+        ]
+    ]
+}

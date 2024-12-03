@@ -1,5 +1,5 @@
 /*
- * Copyright 2023 Jason Chestnut <pauperboards@gmail.com> @pauperboards
+ * Copyright 2020 Jason Chestnut <jason.chestnut@gmail.com>
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -19,13 +19,13 @@
 
 #include "wrappers.h"
 
-//enum userspace_keycodes {
-    //QWERTY = SAFE_RANGE,
-    //NUMBER,
-    //SYMBOL,
-    //NAVIGATION,
-    //FUNCTION
-//};
+enum userspace_keycodes {
+    BASE = SAFE_RANGE,
+    NAV,
+    SYMBOL,
+    NUMBER,
+    ADJUST
+};
 
 /*
  * Mod-taps.
@@ -41,4 +41,19 @@
 #define KC_CTLCLN MT(MOD_LCTL, KC_SCLN)
 
 #define KC_SFTLP  MT(MOD_LSFT, KC_LPRN)
+
+
+/*
+ * Key shortcuts.
+ */
+#define DT_NXT LCTL(KC_RGHT)
+#define DT_PRV LCTL(KC_LEFT)
+
+/*
+ * Common key combos used in multiple keymaps.
+ */
+
+#ifdef COMBO_ENABLE
+#include "combos.h"
+#endif
 

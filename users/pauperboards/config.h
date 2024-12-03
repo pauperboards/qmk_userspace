@@ -1,4 +1,5 @@
-/* Copyright 2023 Jason Chestnut <pauperboards@gmail.com> @pauperboards
+/*
+ * Copyright 2020 Jason Chestnut <jason.chestnut@gmail.com>
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -16,22 +17,27 @@
 #pragma once
 
 // Tapping term settings
-#define COMBO_TERM 50 // The default is 50ms
-#define TAPPING_TERM 140
-#define IGNORE_MOD_TAP_INTERRUPT
+#define COMBO_COUNT 1
+#define TAPPING_TERM 150
+#define COMBO_ONLY_FROM_LAYER 0 /** Check combos using only one layer, even if other layers are active. **/
+
+/*#ifdef RGB_MATRIX_ENABLE*/
+/*#    define RGB_MATRIX_DISABLE_SHARED_KEYCODES*/
+/*#endif*/
 
 #ifdef RGBLIGHT_ENABLE
-#   define RGBLIGHT_SLEEP
-#   define RBG_HUE_STEP     16
-#   define RGB_SAT_STEP     16
-#   define RGB_VAL_STEP     16
+#    define RGBLIGHT_SLEEP
+#    define RBG_HUE_STEP 16
+#    define RGB_SAT_STEP 16
+#    define RGB_VAL_STEP 16
 
-#   define RBGLIGHT_EFFECT_BREATHING
-#   define RBGLIGHT_EFFECT_KNIGHT
-#   define RBGLIGHT_EFFECT_SNAKE
-#   define RGBLIGHT_EFFECT_RAINBOW_SWIRL
+#    define RBGLIGHT_EFFECT_BREATHING
+#    define RBGLIGHT_EFFECT_KNIGHT
+#    define RBGLIGHT_EFFECT_SNAKE
+#    define RGBLIGHT_EFFECT_RAINBOW_SWIRL
 #endif
 
+// Layout macros
 #ifndef __ASSEMBLER__
 #    include "wrappers.h"
-#endif // !__ASSEMBLER__
+#endif

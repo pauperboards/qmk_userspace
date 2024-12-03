@@ -24,15 +24,56 @@ enum combo_events {
     PC_TAB,
     PC_ESC,
     PC_DEL,
+    PC_BSP,
     PC_LCBR,
     PC_RCBR,
     PC_LPRN,
     PC_RPRN,
     PC_LBRC,
     PC_RBRC,
-    PC_QOT,
-    /** QMK BOOT/RESET combo. */
-    PC_RESET,
+
+    /**
+     * Combo mods:
+     *  - Two-key mod combos to use instead of home row mods.
+     *  - Must be repeated for layers other than base.
+     *  - Each layer has a different prefix:
+     *      - Base: PB
+     *      - Number: PN
+     *      - Symbol: PS
+     *      - Nav: PV
+     **/
+    /** BASE **/
+    PB_LGUI,
+    PB_LCTL,
+    PB_LALT,
+    PB_RGUI,
+    PB_RCTL,
+    PB_RALT,
+    /** NUMBER **/
+    PN_LGUI,
+    PN_LCTL,
+    PN_LALT,
+    PN_RGUI,
+    PN_RCTL,
+    PN_RALT,
+    /** SYMBOL **/
+    PS_LGUI,
+    PS_LCTL,
+    PS_LALT,
+    PS_RGUI,
+    PS_RCTL,
+    PS_RALT,
+    /** NAV **/
+    PV_LGUI,
+    PV_LCTL,
+    PV_LALT,
+    PV_RGUI,
+    PV_RCTL,
+    PV_RALT,
+
+    PC_QUOTE,
+    PC_ENTER,
+    PC_RESET, /** QMK BOOT/RESET combo. */
 
     COMBO_LENGTH
 };

@@ -1,5 +1,5 @@
 /*
- * Copyright 2023 Jason Chestnut <pauperboards@gmail.com> @pauperboards
+ * Copyright 2020 Jason Chestnut <jason.chestnut@gmail.com>
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -14,7 +14,3 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-#include "pauperboards.h"
-
-void process_combo_event(uint16_t combo_index, bool pressed) {
-}
