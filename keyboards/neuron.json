@@ -1,0 +1,34 @@
+{
+    "keyboard": "kbdfans/niu_mini",
+    "keymap": "pauperboards",
+    "layout": "LAYOUT_neuron",
+    "layers": [
+            [ "C_48(_QWERTY)" ],
+            [ "C_48(_NUMBER)" ],
+            [ "C_48(_SYMBOL)" ],
+            [ "C_48(_NAVUNDERGLOW)" ]
+        ],
+    "config": {
+        "features": {
+            "rgblight": true,
+            "combos": true
+        },
+        "rgblight": {
+            "animations": {
+                "breathing": true,
+                "knight": true,
+                "rainbow_swirl": true,
+                "snake": true,
+                "static_light": true
+            },
+            "default": {
+                "on": true,
+                "animation": "static_light",
+                "hue": 120,
+                "sat": 255,
+                "val": 105
+            },
+            "sleep": true
+        }
+    }
+}

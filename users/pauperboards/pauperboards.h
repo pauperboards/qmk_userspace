@@ -46,13 +46,12 @@ enum userspace_keycodes {
 /*
  * Key shortcuts.
  */
-#define DT_NXT LCTL(KC_RGHT)
-#define DT_PRV LCTL(KC_LEFT)
+#define DT_NXT LCTL(KC_RGHT) /* Desktop Next */
+#define DT_PRV LCTL(KC_LEFT) /* Desktop Prev */
 
 /*
  * Common key combos used in multiple keymaps.
  */
-
 #ifdef COMBO_ENABLE
 #include "combos.h"
 #endif

@@ -1,9 +1,10 @@
 {
     "userspace_version": "1.1",
     "build_targets": [
-        ["pauperboards/pixie", "default"],
         ["crkbd", "pauperboards"],
         ["kbdfans/niu_mini", "pauperboards"],
-        ["pauperboards/pixie", "pauperboards"]
+        ["pauperboards/brick", "pauperboards"],
+        ["pauperboards/pixie", "pauperboards"],
+        ["boardsource/microdox/v1", "pauperboards"]
     ]
 }

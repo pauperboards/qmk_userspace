@@ -1,0 +1,11 @@
+{
+    "keyboard": "pauperboards/brick",
+    "keymap": "pauperboards",
+    "layout": "LAYOUT_brane",
+    "layers": [
+            [ "ORTHO_44(_QWERTY)" ],
+            [ "ORTHO_44(_NUMBER)" ],
+            [ "ORTHO_44(_SYMBOL)" ],
+            [ "ORTHO_44(_NAVIGATION)" ]
+        ]
+}

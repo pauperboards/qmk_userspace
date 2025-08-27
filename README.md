@@ -1,59 +1,44 @@
-# QMK Userspace
+# Pauper's QMK Userspace
 
-This is a template repository which allows for an external set of QMK keymaps to be defined and compiled. This is useful for users who want to maintain their own keymaps without having to fork the main QMK repository.
+Here is where I have my personal QMK configuration stored. I use a 34-key base keymap that I adapt to different layouts (such as Corne, 4x12 ortho, or the Ferris. This is forked from the [QMK Userspace repository](https://github.com/qmk/qmk_userspace).
 
-## Howto configure your build targets
+For information on how to use QMK userspaces, see the [QMK Docs](https://docs.qmk.fm/#/newbs) as a starting point.
 
-1. Run the normal `qmk setup` procedure if you haven't already done so -- see [QMK Docs](https://docs.qmk.fm/#/newbs) for details.
-1. Fork this repository
-1. Clone your fork to your local machine
-1. Enable userspace in QMK config using `qmk config user.overlay_dir="$(realpath qmk_userspace)"`
-1. Add a new keymap for your board using `qmk new-keymap`
-    * This will create a new keymap in the `keyboards` directory, in the same location that would normally be used in the main QMK repository. For example, if you wanted to add a keymap for the Planck, it will be created in `keyboards/planck/keymaps/<your keymap name>`
-    * You can also create a new keymap using `qmk new-keymap -kb <your_keyboard> -km <your_keymap>`
-    * Alternatively, add your keymap manually by placing it in the location specified above.
-    * `layouts/<layout name>/<your keymap name>/keymap.*` is also supported if you prefer the layout system
-1. Add your keymap(s) to the build by running `qmk userspace-add -kb <your_keyboard> -km <your_keymap>`
-    * This will automatically update your `qmk.json` file
-    * Corresponding `qmk userspace-remove -kb <your_keyboard> -km <your_keymap>` will delete it
-    * Listing the build targets can be done with `qmk userspace-list`
-1. Commit your changes
+---
 
-## Howto build with GitHub
+## The Keymap
 
-1. In the GitHub Actions tab, enable workflows
-1. Push your changes above to your forked GitHub repository
-1. Look at the GitHub Actions for a new actions run
-1. Wait for the actions run to complete
-1. Inspect the Releases tab on your repository for the latest firmware build
+The base keymap is QWERTY, with multiple layers for numbers and symbols, etc. I use combos for some of the common non-alpha
+keys, like brackets and tab.
 
-## Howto build locally
+### Keymap Layers
 
-1. Run the normal `qmk setup` procedure if you haven't already done so -- see [QMK Docs](https://docs.qmk.fm/#/newbs) for details.
-1. Fork this repository
-1. Clone your fork to your local machine
-1. `cd` into this repository's clone directory
-1. Set global userspace path: `qmk config user.overlay_dir="$(realpath .)"` -- you MUST be located in the cloned userspace location for this to work correctly
-    * This will be automatically detected if you've `cd`ed into your userspace repository, but the above makes your userspace available regardless of your shell location.
-1. Compile normally: `qmk compile -kb your_keyboard -km your_keymap` or `make your_keyboard:your_keymap`
+The keymap uses 4 layers: a base alpha layer, a numbers layer, a symbols layer, and a navigation layer. Number and Symbol are reached by a single
+thumb key each, and navigation is toggled by holding both layer keys.
 
-Alternatively, if you configured your build targets above, you can use `qmk userspace-compile` to build all of your userspace targets at once.
+#### 1. Base Alpha Layer
+The base layer is the QWERTY alpha layer, and contians a lot of combos to handle things like brackets, tab, escape, and few other keys. The two outer thumb keys are layer keys, and the two inner ones provide Shift and Space.
 
-## Extra info
+![Base Layer Keymap Image](images/base_layer.png "Base Layer")
 
-If you wish to point GitHub actions to a different repository, a different branch, or even a different keymap name, you can modify `.github/workflows/build_binaries.yml` to suit your needs.
+#### 2. Number Layer
+The number layer puts a number pad under the right hand, along with the math symbols that go with them. I had space left over on the left hand and moved my Function keys there, eliminating the need for a dedicated Function layer.
 
-To override the `build` job, you can change the following parameters to use a different QMK repository or branch:
-```
-    with:
-      qmk_repo: qmk/qmk_firmware
-      qmk_ref: master
-```
+![Number Layer Keymap Image](images/number_layer.png "Number Layer")
 
-If you wish to manually manage `qmk_firmware` using git within the userspace repository, you can add `qmk_firmware` as a submodule in the userspace directory instead. GitHub Actions will automatically use the submodule at the pinned revision if it exists, otherwise it will use the default latest revision of `qmk_firmware` from the main repository.
+#### 3. Symbol Layer
+The symbol layer roughly corresponds to the shifted number keys. E.g., the same key that is a '2' on the number layer is a '@' symbol on the symbol layer. The other two important additions here are tilde and grave.
 
-This can also be used to control which fork is used, though only upstream `qmk_firmware` will have support for external userspace until other manufacturers update their forks.
+![Symbol Layer Keymap Image](images/symbol_layer.png "Symbol Layer")
 
-1. (First time only) `git submodule add https://github.com/qmk/qmk_firmware.git`
-1. (To update) `git submodule update --init --recursive`
-1. Commit your changes to your userspace repository
+#### 4. Navigation Layer
+The navigation layer currently holds the arrow keys as they correspond to vim motion keys, analogous home/end and page up/down keys, some desktop and Mac Command Cener controls, media keys, and some RGB backlight keys.
+
+![Navigation Layer Keymap Image](images/navigation_layer.png "Navigation Layer")
+
+### Adaptations to Layouts
+
+I have adapted my base layout to a few different physical layouts.
+- Corne 6 column (outer columns not used)
+- 4 X 12 Ortho, such as on the Niu Mini. I have this PCB in my Neuron case, and use my keymap with blank middle columns.
+- 2 X 2u 4 row Ortho, such as on the Brick PCB, which was designed by a Really Cool Guy:tm:.

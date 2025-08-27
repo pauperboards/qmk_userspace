@@ -1,0 +1,39 @@
+{
+    "keyboard": "pauperboards/brick",
+    "keymap": "pauperboards",
+    "config": {
+        "features": {
+            "rgblight": true,
+            "combos": true
+        },
+        "rgblight": {
+            "animations": {
+                "alternating": false,
+                "breathing": false,
+                "christmas": false,
+                "knight": false,
+                "rainbow_mood": false,
+                "rainbow_swirl": false,
+                "rgb_test": false,
+                "snake": false,
+                "static_light": true,
+                "twinkle": true
+            },
+            "default": {
+                "on": true,
+                "animation": "twinkle",
+                "hue": 55,
+                "sat": 100,
+                "val": 100
+            },
+            "sleep": true
+        }
+    },
+    "layout": "LAYOUT_brane",
+    "layers": [
+            [ "ORTHO_44(_QWERTY)" ],
+            [ "ORTHO_44(_NUMBER)" ],
+            [ "ORTHO_44(_SYMBOL)" ],
+            [ "ORTHO_44(_NAVUNDERGLOW)" ]
+        ]
+}

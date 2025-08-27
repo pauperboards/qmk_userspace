@@ -31,7 +31,7 @@ enum userspace_layers { _BASE, _NUM, _SYM, _NAV };
 #endif
 
 // Various key code convenience mappings
-#define XXX _______
+#define YYY _______
 
 /*
  * My standard keymap is based on a 34-key split ortho board. This includes 5 columns and 2 thumb
@@ -45,7 +45,8 @@ enum userspace_layers { _BASE, _NUM, _SYM, _NAV };
 
 // clang-format off
 /**
- * QWERTY
+ * QWERTY - The base keymap is standard QWERTY. Thumb keys handle space, shift, and layer
+ * keys. Combos are used a lot for things like brackets and Escape.
  *
  *      ┌─────┬─────┬─────┬─────┬─────┐  ┌─────┬─────┬─────┬─────┬─────┐
  *      │  Q  │  W  │  E  │  R  │  T  │  │  Y  │  U  │  I  │  O  │  P  │
@@ -66,15 +67,15 @@ KC_Z, KC_X, KC_C, KC_V, KC_B, KC_N, KC_M,   KC_COMMA, KC_DOT, KC_SLASH, \
 /**
  * Numbers (ten-key style) - The number layer uses the right thumb keys for 0 and '.', so this layer includes those
  * two keys.
- * ┌─────┬─────┬─────┬─────┬─────┐  ┌─────┬─────┬─────┬─────┬─────┐
- * │ F10 │ F7  │ F8  │ F9  │     │  │  +  │  7  │  8  │  9  │  _  │
- * ├─────┼─────┼─────┼─────┼─────┤  ├─────┼─────┼─────┼─────┼─────┤
- * │ F11 │ F4  │ F5  │ F6  │     │  │  =  │  4  │  5  │  6  │  -  │
- * ├─────┼─────┼─────┼─────┼─────┤  ├─────┼─────┼─────┼─────┼─────┤
- * │ F12 │ F1  │ F2  │ F3  │     │  │  *  │  1  │  2  │  3  │  /  │
- * └─────┴─────┴─────┼─────┼─────┤  ├─────┼─────┼─────┴─────┴─────┘
- *                   │  X  │     │  │  0  │  .  │
- *                   └─────┴─────┘  └─────┴─────┘
+ *      ┌─────┬─────┬─────┬─────┬─────┐  ┌─────┬─────┬─────┬─────┬─────┐
+ *      │ F10 │ F7  │ F8  │ F9  │     │  │  +  │  7  │  8  │  9  │  _  │
+ *      ├─────┼─────┼─────┼─────┼─────┤  ├─────┼─────┼─────┼─────┼─────┤
+ *      │ F11 │ F4  │ F5  │ F6  │     │  │  =  │  4  │  5  │  6  │  -  │
+ *      ├─────┼─────┼─────┼─────┼─────┤  ├─────┼─────┼─────┼─────┼─────┤
+ *      │ F12 │ F1  │ F2  │ F3  │     │  │  *  │  1  │  2  │  3  │  /  │
+ *      └─────┴─────┴─────┼─────┼─────┤  ├─────┼─────┼─────┴─────┴─────┘
+ *                        │  X  │     │  │  0  │  .  │
+ *                        └─────┴─────┘  └─────┴─────┘
  */
 #define _NUMBER \
 KC_F10, KC_F7, KC_F8, KC_F9, _______, KC_PPLS, KC_7, KC_8, KC_9, KC_UNDS, \
@@ -85,59 +86,59 @@ KC_F12, KC_F1, KC_F2, KC_F3, _______, KC_PAST, KC_1, KC_2, KC_3, KC_SLSH, \
 /**
  * Symbols - The symbol layer includes a shifted number pad on the right hand, giving access to all the
  * symbols that would be typed by shifted number row on a standard keyboard.
- * ┌─────┬─────┬─────┬─────┬─────┐  ┌─────┬─────┬─────┬─────┬─────┐
- * │  ~  │  `  │  {  │  }  │     │  │     │  &  │  *  │  -  │  |  │
- * ├─────┼─────┼─────┼─────┼─────┤  ├─────┼─────┼─────┼─────┼─────┤
- * │     │     │  (  │  )  │     │  │  -  │  $  │  %  │  ^  │  '  │
- * ├─────┼─────┼─────┼─────┼─────┤  ├─────┼─────┼─────┼─────┼─────┤
- * │     │     │  [  │  ]  │     │  │  _  │  !  │  @  │  #  │  \  │
- * └─────┴─────┴─────┼─────┼─────┤  ├─────┼─────┼─────┴─────┴─────┘
- *                   │     │     │  │     │  X  │
- *                   └─────┴─────┘  └─────┴─────┘
+ *      ┌─────┬─────┬─────┬─────┬─────┐  ┌─────┬─────┬─────┬─────┬─────┐
+ *      │  ~  │  `  │     │     │     │  │     │  &  │  *  │  -  │  |  │
+ *      ├─────┼─────┼─────┼─────┼─────┤  ├─────┼─────┼─────┼─────┼─────┤
+ *      │     │     │     │     │     │  │     │  $  │  %  │  ^  │  '  │
+ *      ├─────┼─────┼─────┼─────┼─────┤  ├─────┼─────┼─────┼─────┼─────┤
+ *      │     │     │     │     │     │  │     │  !  │  @  │  #  │  \  │
+ *      └─────┴─────┴─────┼─────┼─────┤  ├─────┼─────┼─────┴─────┴─────┘
+ *                        │     │     │  │     │  X  │
+ *                        └─────┴─────┘  └─────┴─────┘
  */
 #define _SYMBOL \
 KC_TILD, KC_GRV,  _______, _______, _______, _______, KC_AMPR, KC_ASTR, KC_MINS, KC_PIPE, \
 KC_LCTL, KC_LALT, KC_LSFT, KC_LGUI, _______, _______, KC_DLR,  KC_PERC, KC_CIRC, KC_QUOT, \
 _______, _______, _______, _______, _______, _______, KC_EXLM, KC_AT,   KC_HASH, KC_BSLS, \
-                           L_NAV, _______, _______, _______
+                             L_NAV, _______, _______, _______
 
 /**
  * Navigation - These are all Nav keys, like arrows, PgUp/PgDn, etc. Nav keys are on the right hand.
  * At the moment, the left hand home row keys are mods for using with the arrows, et. al.
- * ┌─────┬─────┬─────┬─────┬─────┐  ┌─────┬─────┬─────┬─────┬─────┐
- * │ RGU │    │  󰖁  │    │     │  │ Hme │ PDn │ PUp │ End │     │
- * ├─────┼─────┼─────┼─────┼─────┤  ├─────┼─────┼─────┼─────┼─────┤
- * │ RGT │     │     │     │     │  │    │    │    │    │     │
- * ├─────┼─────┼─────┼─────┼─────┤  ├─────┼─────┼─────┼─────┼─────┤
- * │ RGD │  󰑟  │  󰐎  │  󰈑  │     │  │     │     │     │     │     │
- * └─────┴─────┴─────┼─────┼─────┤  ├─────┼─────┼─────┴─────┴─────┘
- *                   │  X  │     │  │     │  X  │
- *                   └─────┴─────┘  └─────┴─────┘
+ *      ┌─────┬─────┬─────┬─────┬─────┐  ┌─────┬─────┬─────┬─────┬─────┐
+ *      │ RGU │    │  󰖁  │    │     │  │ Hme │ PDn │ PUp │ End │     │
+ *      ├─────┼─────┼─────┼─────┼─────┤  ├─────┼─────┼─────┼─────┼─────┤
+ *      │ RGT │ RGP │ RGN │     │     │  │    │    │    │    │     │
+ *      ├─────┼─────┼─────┼─────┼─────┤  ├─────┼─────┼─────┼─────┼─────┤
+ *      │ RGD │  󰑟  │  󰐎  │  󰈑  │     │  │  󰮲  │     │  󰧨  │  󰮰  │     │
+ *      └─────┴─────┴─────┼─────┼─────┤  ├─────┼─────┼─────┴─────┴─────┘
+ *         Media/RGB      │  X  │     │  │     │  X  │ Directions/Mission Control
+ *                        └─────┴─────┘  └─────┴─────┘
  */
 #define _NAVIGATION \
-RM_VALU, KC_VOLD, KC_MUTE, KC_VOLU, _______, KC_HOME, KC_PGDN, KC_PGUP, KC_END,   _______, \
-RM_TOGG, RM_PREV, RM_NEXT, _______, _______, KC_LEFT, KC_DOWN, KC_UP,   KC_RIGHT, _______, \
-RM_VALD, KC_MPRV, KC_MPLY, KC_MNXT, _______, _______, _______, _______, _______,  _______, \
+RM_VALU, KC_VOLD, KC_MUTE, KC_VOLU, _______, KC_HOME, KC_PGDN,    KC_PGUP, KC_END,   _______, \
+RM_TOGG, RM_PREV, RM_NEXT, _______, _______, KC_LEFT, KC_DOWN,    KC_UP,   KC_RIGHT, _______, \
+RM_VALD, KC_MPRV, KC_MPLY, KC_MNXT, _______, _______, C(KC_LEFT), KC_MCTL, C(KC_RIGHT),  _______, \
                            _______, _______, _______, _______
 
 /**
- * Function
- * ┌─────┬─────┬─────┬─────┬─────┐  ┌─────┬─────┬─────┬─────┬─────┐
- * │ F10 │ F7  │ F8  │ F9  │     │  │     │     │     │     │ DEL │
- * ├─────┼─────┼─────┼─────┼─────┤  ├─────┼─────┼─────┼─────┼─────┤
- * │ F11 │ F6  │ F5  │ F4  │     │  │     │ GUI │ SFT │ ALT │ CTL │
- * ├─────┼─────┼─────┼─────┼─────┤  ├─────┼─────┼─────┼─────┼─────┤
- * │ F12 │ F3  │ F2  │ F1  │     │  │     │     │     │     │ RST │
- * └─────┴─────┴─────┼─────┼─────┤  ├─────┼─────┼─────┴─────┴─────┘
- *                   │     │     │  │     │     │
- *                   └─────┴─────┘  └─────┴─────┘
+ * Navigation/UG - These are all Nav keys, like arrows, PgUp/PgDn, etc. This layer is exactly like the
+ * previous one, but has RGB Underglow controls in place of the RGB Matrix conrols for different keyboards
+ * that have one capability vs. the other.
+ *      ┌─────┬─────┬─────┬─────┬─────┐  ┌─────┬─────┬─────┬─────┬─────┐
+ *      │ RGU │    │  󰖁  │    │     │  │ Hme │ PDn │ PUp │ End │     │
+ *      ├─────┼─────┼─────┼─────┼─────┤  ├─────┼─────┼─────┼─────┼─────┤
+ *      │ UGT │ uGP │ RGN │     │     │  │    │    │    │    │     │
+ *      ├─────┼─────┼─────┼─────┼─────┤  ├─────┼─────┼─────┼─────┼─────┤
+ *      │ RGD │  󰑟  │  󰐎  │  󰈑  │     │  │  󰮲  │     │  󰧨  │  󰮰  │     │
+ *      └─────┴─────┴─────┼─────┼─────┤  ├─────┼─────┼─────┴─────┴─────┘
+ *         Media/UG       │  X  │     │  │     │  X  │ Directions/Mission Control
+ *                        └─────┴─────┘  └─────┴─────┘
  */
-#define _FUNCTION \
-KC_F10, KC_F9, KC_F8, KC_F7, KC_DEL,  _______, _______, _______, _______, _______, \
-KC_F11, KC_F6, KC_F5, KC_F4, _______, _______, KC_LGUI, KC_LSFT, KC_LALT, KC_LCTL, \
-KC_F12, KC_F3, KC_F2, KC_F1, _______, _______, _______, _______, _______, QK_BOOT, \
-                    _______, _______, _______, _______
+#define _NAVUNDERGLOW \
+UG_HUEU, KC_VOLD, KC_MUTE, KC_VOLU, _______, KC_HOME, KC_PGDN,    KC_PGUP, KC_END,   _______, \
+UG_TOGG, UG_SATU, UG_SATD, UG_VALU, UG_VALD, KC_LEFT, KC_DOWN,    KC_UP,   KC_RIGHT, _______, \
+UG_HUED, KC_MPRV, KC_MPLY, KC_MNXT, _______, _______, C(KC_LEFT), KC_MCTL, C(KC_RIGHT),  _______, \
+                           _______, _______, _______, _______
 
-// Set up a basic modtap layer with 34 keys.
-/*#define HRM(k) HR_MODTAP(k)*/
-// clang-format off// clang-format off// clang-format off// clang-format off// clang-format off// clang-format off// clang-format off// clang-format off// clang-format off// clang-format off// clang-format off// clang-format off// clang-format off// clang-format off// clang-format off// clang-format off// clang-format off// clang-format off// clang-format off// clang-format off// clang-format off// clang-format off// clang-format off// clang-format off// clang-format off// clang-format off// clang-format off// clang-format off// clang-format off// #define HR_MODTAP(l01, l02, l03, l04, l05, r01, r02, r03, r04, r05, l06, l07, l08, l09, l10, r06, r07, r08, r09, r10, l11, l12, l13, l14, l15, r11, r12, r13, r14, r15, l16, l17, r16, r17) l01, l02, l03, l04, l05, r01, r02, r03, r04, r05, HR_L(l06, l07, l08, l09), l10, r06, HR_R(r07, r08, r09, r10), l11, l12, l13, l14, l15, r11, r12, r13, r14, r15, l16, l17, r16, r17
+// clang-format on

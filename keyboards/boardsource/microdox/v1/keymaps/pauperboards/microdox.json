@@ -1,0 +1,28 @@
+{
+    "keyboard": "boardsource/microdox/v1",
+    "config": {
+        "features": {
+            "oled": true,
+            "rgblight": false,
+            "combos": true
+        },
+        "split": {
+            "transport": {
+                "sync": {
+                    "indicators": true,
+                    "layer_state": true,
+                    "modifiers": true,
+                    "oled": true
+                }
+            }
+        }
+    },
+    "keymap": "pauperboards",
+    "layout": "LAYOUT_microdox",
+    "layers": [
+        ["SPLIT_353(_QWERTY)"],
+        ["SPLIT_353(_NUMBER)"],
+        ["SPLIT_353(_SYMBOL)"],
+        ["SPLIT_353(_NAVIGATION)"]
+    ]
+}

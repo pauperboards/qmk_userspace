@@ -1,0 +1,40 @@
+{
+    "keyboard": "crkbd/rev1",
+    "config": {
+        "features": {
+            "oled": false,
+            "rgblight": false,
+            "rgb_matrix": true,
+            "combos": true
+        },
+        "rgb_matrix": {
+            "animations": {
+                "breathing": true,
+                "hue_breathing": true,
+                "hue_wave": true,
+                "typing_heatmap": true
+            },
+            "default_hue": 191,
+            "default_sat": 200,
+            "default_val": 160
+        },
+        "split": {
+            "transport": {
+                "sync": {
+                    "indicators": true,
+                    "layer_state": true,
+                    "modifiers": true,
+                    "oled": false
+                }
+            }
+        }
+    },
+    "keymap": "pauperboards",
+    "layout": "LAYOUT_corne",
+    "layers": [
+        [ "SPLIT_42(_QWERTY)" ],
+        [ "SPLIT_42(_NUMBER)" ],
+        [ "SPLIT_42(_SYMBOL)" ],
+        [ "SPLIT_42(_NAVIGATION)" ]
+    ]
+}
